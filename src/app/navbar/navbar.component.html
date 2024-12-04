@@ -1,3 +1,16 @@
-<nav class="flex bg-primary h-4rem justify-content-center align-items-center">
-  <h2>List And Modify Products (CRUD)</h2>
+<nav
+  class="align-items-center border-bottom-2 border-primary flex h-4rem justify-content-between surface-card"
+>
+  <div>
+    <img src="favicon.ico" alt="" />
+  </div>
+  <h1 class="text-primary">List And Modify Products (CRUD)</h1>
+  <div>
+    <p-button
+      icon="{{ iconTheme }}"
+      (onClick)="toggleTheme()"
+      [rounded]="true"
+      [raised]="true"
+    />
+  </div>
 </nav>

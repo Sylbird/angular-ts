@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "primeng/resources/themes/lara-light-indigo/theme.css";
-@import "primeng/resources/primeng.css";
-@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
 
 html,
 body {
@@ -13,4 +11,12 @@ body {
 
 body {
   font-family: "Segoe UI", sans-serif, Tahoma, Geneva, Verdana;
+}
+
+button {
+  color: rgb(255, 255, 255) !important;
+}
+
+.p-orderlist-list-container {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15) !important;
 }
