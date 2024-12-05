@@ -11,7 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 })
 export class AppComponent {
   @ViewChild(ProductsComponent) productsComponent!: ProductsComponent;
-  title = 'productsCRUD';
+  title = 'angular-ts';
 
   constructor() {
     afterNextRender(() => {

@@ -1,5 +1,5 @@
 {
-  "name": "products-crud",
+  "name": "angular-ts",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:productsCRUD": "node dist/products-crud/server/server.mjs"
+    "serve:ssr:angular-ts": "node dist/angular-ts/server/server.mjs"
   },
   "private": true,
   "dependencies": {
