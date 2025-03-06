@@ -8,6 +8,7 @@ import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { Product } from '../database.service';
+import { afterNextRender } from '@angular/core';
 
 @Component({
   selector: 'app-products',
@@ -34,7 +35,11 @@ export class ProductsComponent {
   visible: boolean = false;
   isEditMode: boolean = false;
 
-  constructor(private productService: ProductService, private ngZone: NgZone) {}
+  constructor(private productService: ProductService, private ngZone: NgZone) {
+    afterNextRender(() => {
+      this.loadProducts();
+    });
+  }
 
   showAddModal() {
     this.product = {

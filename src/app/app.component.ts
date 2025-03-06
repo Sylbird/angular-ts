@@ -1,21 +1,16 @@
-import { afterNextRender, Component, ViewChild } from '@angular/core';
-import { ProductsComponent } from './products/products.component';
+import { Component } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, ProductsComponent],
+  imports: [NavbarComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  @ViewChild(ProductsComponent) productsComponent!: ProductsComponent;
   title = 'angular-ts';
 
-  constructor() {
-    afterNextRender(() => {
-      this.productsComponent.loadProducts();
-    });
-  }
+  constructor() {}
 }
