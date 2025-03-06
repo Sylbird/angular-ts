@@ -2,15 +2,30 @@
   class="align-items-center border-bottom-2 border-primary flex h-4rem justify-content-between surface-card"
 >
   <div>
-    <img src="favicon.ico" alt="" />
+    <img src="favicon.ico" alt="" class="ml-2" />
   </div>
-  <h1 class="text-primary">List And Modify Products (CRUD)</h1>
-  <div>
+  <div class="flex gap-2 align-items-center">
     <p-button
       icon="{{ iconTheme }}"
       (onClick)="toggleTheme()"
       [rounded]="true"
       [raised]="true"
+    />
+    <p-sidebar
+      header="Right Drawer"
+      [(visible)]="sidebarVisible"
+      position="right"
+    >
+      <ul class="list-none p-0 m-0">
+        <li><a routerLink="/" class="">Home</a></li>
+        <li><a routerLink="/productsCRUD">Products CRUD</a></li>
+      </ul>
+    </p-sidebar>
+    <p-button
+      type="button"
+      class="mr-2"
+      (onClick)="sidebarVisible = true"
+      icon="pi pi-bars"
     />
   </div>
 </nav>

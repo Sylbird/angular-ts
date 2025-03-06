@@ -1,115 +1,108 @@
-<main class="flex flex-column p-2 align-items-center">
-  <p-dialog
-    header="{{ isEditMode ? 'Edit Product' : 'Add Product' }}"
-    [modal]="true"
-    [(visible)]="visible"
-    [style]="{ width: '25rem' }"
-  >
-    <span class="p-text-secondary block mb-5">{{
-      isEditMode ? "Edit the Product." : "Add a new product."
-    }}</span>
-    <div class="flex align-items-center gap-3 mb-3">
-      <label for="productName" class="font-semibold w-6rem"
-        >ProductName:
-      </label>
-      <input
-        pInputText
-        id="productName"
-        class="flex-auto p-inputtext"
-        autocomplete="off"
-        [(ngModel)]="product.name"
-      />
-    </div>
-    <div class="flex align-items-center gap-3 mb-3">
-      <label for="productDescription" class="font-semibold w-6rem"
-        >Description:
-      </label>
-      <input
-        pInputText
-        id="productDescription"
-        class="flex-auto p-inputtext"
-        autocomplete="off"
-        [(ngModel)]="product.description"
-      />
-    </div>
-    <div class="flex align-items-center gap-3 mb-5">
-      <label for="productPrice" class="font-semibold w-6rem">Price: </label>
-
-      <p-inputNumber
-        [(ngModel)]="product.price"
-        inputId="productPrice"
-        mode="currency"
-        currency="USD"
-        locale="en-US"
-      />
-    </div>
-    <div class="flex justify-content-end gap-2">
-      <p-button
-        label="Cancel"
-        severity="secondary"
-        (onClick)="visible = false"
-      />
-      <p-button
-        label="Save"
-        (onClick)="
-          isEditMode
-            ? sendUpdateData(
-                product.id,
-                product.name,
-                product.description,
-                product.price
-              )
-            : addProduct(product.name, product.description, product.price)
-        "
-      />
-    </div>
-  </p-dialog>
-  <p-orderList
-    [value]="products"
-    [listStyle]="{ 'max-height': '30rem' }"
-    header="List of Products"
-    filterBy="name"
-    filterPlaceholder="Filter by name"
-    responsive
-    metaKeySelection="true"
-    [style]="{ width: '100vw', maxWidth: '920px' }"
-  >
-    <ng-template let-product pTemplate="product">
-      <div
-        class="flex flex-wrap p-2 align-items-center gap-3 select-none justify-content-center"
-      >
-        <img
-          src="{{ 'assets/images/no-image.jpg' }}"
-          [alt]="product.name"
-          class="w-4rem shadow-2 flex-shrink-0 border-round"
-        />
-        <div class="flex-1 flex flex-column gap-2">
-          <span class="font-bold">{{ product.name }}</span>
-          <div class="flex align-items-center gap-2">
-            <i class="pi pi-tag text-sm"></i>
-            <span>{{ product.description }}</span>
-          </div>
-        </div>
-        <span class="font-bold text-900">
-          {{ "$" + product.price }}
-        </span>
-        <p-buttonGroup>
-          <p-button
-            label="Edit"
-            severity="warning"
-            (onClick)="showEditModal(product)"
-          />
-          <p-button
-            label="Delete"
-            severity="danger"
-            (onClick)="removeProduct(product.id)"
-          />
-        </p-buttonGroup>
-      </div>
-    </ng-template>
-  </p-orderList>
-  <div class="flex gap-2 p-3">
-    <p-button (onClick)="showAddModal()" label="Add Product" />
-    <p-button label="Refresh" (onClick)="loadProducts()" />
+<p-dialog
+  header="{{ isEditMode ? 'Edit Product' : 'Add Product' }}"
+  [modal]="true"
+  [(visible)]="visible"
+  [style]="{ width: '25rem' }"
+>
+  <span class="p-text-secondary block mb-5">{{
+    isEditMode ? "Edit the Product." : "Add a new product."
+  }}</span>
+  <div class="flex align-items-center gap-3 mb-3">
+    <label for="productName" class="font-semibold w-6rem">ProductName: </label>
+    <input
+      pInputText
+      id="productName"
+      class="flex-auto p-inputtext"
+      autocomplete="off"
+      [(ngModel)]="product.name"
+    />
   </div>
-</main>
+  <div class="flex align-items-center gap-3 mb-3">
+    <label for="productDescription" class="font-semibold w-6rem"
+      >Description:
+    </label>
+    <input
+      pInputText
+      id="productDescription"
+      class="flex-auto p-inputtext"
+      autocomplete="off"
+      [(ngModel)]="product.description"
+    />
+  </div>
+  <div class="flex align-items-center gap-3 mb-5">
+    <label for="productPrice" class="font-semibold w-6rem">Price: </label>
+
+    <p-inputNumber
+      [(ngModel)]="product.price"
+      inputId="productPrice"
+      mode="currency"
+      currency="USD"
+      locale="en-US"
+    />
+  </div>
+  <div class="flex justify-content-end gap-2">
+    <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+    <p-button
+      label="Save"
+      (onClick)="
+        isEditMode
+          ? sendUpdateData(
+              product.id,
+              product.name,
+              product.description,
+              product.price
+            )
+          : addProduct(product.name, product.description, product.price)
+      "
+    />
+  </div>
+</p-dialog>
+<p-orderList
+  [value]="products"
+  [listStyle]="{ 'max-height': '30rem' }"
+  header="List of Products"
+  filterBy="name"
+  filterPlaceholder="Filter by name"
+  responsive
+  metaKeySelection="true"
+  [style]="{ width: '100vw', maxWidth: '920px' }"
+>
+  <ng-template let-product pTemplate="product">
+    <div
+      class="flex flex-wrap p-2 align-items-center gap-3 select-none justify-content-center"
+    >
+      <img
+        src="{{ 'assets/images/no-image.jpg' }}"
+        [alt]="product.name"
+        class="w-4rem shadow-2 flex-shrink-0 border-round"
+      />
+      <div class="flex-1 flex flex-column gap-2 prod-data">
+        <span class="font-bold">{{ product.name }}</span>
+        <div class="flex align-items-center gap-2">
+          <i class="pi pi-tag text-sm"></i>
+          <span class="font-bold">
+            {{ "$" + product.price }}
+          </span>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+
+      <p-buttonGroup>
+        <p-button
+          label="Edit"
+          severity="warning"
+          (onClick)="showEditModal(product)"
+        />
+        <p-button
+          label="Delete"
+          severity="danger"
+          (onClick)="removeProduct(product.id)"
+        />
+      </p-buttonGroup>
+    </div>
+  </ng-template>
+</p-orderList>
+<div class="flex gap-2 p-3 justify-content-center">
+  <p-button (onClick)="showAddModal()" label="Add Product" />
+  <p-button label="Refresh" (onClick)="loadProducts()" />
+</div>

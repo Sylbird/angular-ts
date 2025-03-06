@@ -1,0 +1,22 @@
+li {
+  align-items: center;
+  display: flex;
+  height: 36px;
+  margin-bottom: 10px;
+
+  a {
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    color: var(--surface-900);
+    font-weight: 500;
+    height: 100%;
+    line-height: 36px;
+    padding: 0 8px;
+    text-decoration: none;
+    width: 100%;
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--surface-ground);
+    }
+  }
+}

@@ -1,10 +1,7 @@
 main {
-  width: 100%;
-  min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: inherit;
-  position: relative;
+  padding: 2.5rem 2rem 2rem;
+
+  @media screen and (max-width: 767px) {
+    padding: 1rem;
+  }
 }

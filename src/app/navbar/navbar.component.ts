@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../theme.service';
 import { ButtonModule } from 'primeng/button';
+import { RouterLinkWithHref } from '@angular/router';
+import { SidebarModule } from 'primeng/sidebar';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [ButtonModule],
+  imports: [ButtonModule, RouterLinkWithHref, SidebarModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
   constructor(private themeService: ThemeService) {}
 
-  // Default values for theme & icon
   iconTheme = 'pi pi-sun';
   isLight = true;
+  sidebarVisible: boolean = false;
 
   toggleTheme() {
     this.isLight = !this.isLight;

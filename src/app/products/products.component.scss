@@ -1,0 +1,9 @@
+.prod-data {
+  min-width: 120px;
+  p {
+    @media screen and (max-width: 767px) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
