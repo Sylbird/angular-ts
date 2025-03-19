@@ -21,6 +21,10 @@ body {
 // p-card overrides
 .p-card {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+
+  p {
+    margin: 0;
+  }
 }
 
 .p-card .p-card-content {
@@ -30,4 +34,12 @@ body {
 .p-card .p-card-title {
   font-size: 2rem;
   text-align: center;
+}
+
+// host-component styles here
+.host-component {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }

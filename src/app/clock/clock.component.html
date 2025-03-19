@@ -1,0 +1,12 @@
+<p-card header="Clock">
+  <h2 class="mb-2">Current DateTime Full</h2>
+  <div class="surface-ground border-round p-2 max-w-max border-1 border-50">
+    <p>{{ dateFormat().fullDate }}</p>
+  </div>
+  <h2 class="mb-2">Current DateTime Short</h2>
+  <div class="surface-ground border-round p-2 max-w-max border-1 border-50">
+    <p>{{ dateFormat().timeLocale }}</p>
+    <p>{{ dateFormat().dateLocale }}</p>
+  </div>
+</p-card>
+<app-stopwatch></app-stopwatch>

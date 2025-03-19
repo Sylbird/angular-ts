@@ -1,0 +1,28 @@
+<p-card header="Stopwatch">
+  <h2 class="mb-2">Milliseconds:</h2>
+  <div class="surface-ground border-round p-2 max-w-max border-1 border-50">
+    <p>{{ this.milliseconds }}</p>
+  </div>
+  <div class="surface-ground border-round p-2 max-w-max border-1 border-50">
+    <span>{{ padTo2Digits(getStopwatchTime().hours) }}:</span>
+    <span>{{ padTo2Digits(getStopwatchTime().minutes) }}:</span>
+    <span>{{ padTo2Digits(getStopwatchTime().seconds) }}:</span>
+    <span>{{ padTo2Digits(getStopwatchTime().milliseconds) }}</span>
+  </div>
+
+  @if (isRunning === false){
+  <p-button
+    class="mt-2 inline-block"
+    label="Start"
+    (onClick)="startStopwatch()"
+    severity="success"
+  ></p-button>
+  } @else {
+  <p-button
+    class="mt-2 inline-block"
+    label="Pause"
+    (onClick)="pauseStopwatch()"
+    severity="danger"
+  ></p-button>
+  }
+</p-card>
