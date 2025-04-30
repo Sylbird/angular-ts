@@ -13,6 +13,7 @@ import { afterNextRender } from '@angular/core';
 @Component({
   selector: 'app-products',
   standalone: true,
+  host: { class: 'host-component' },
   imports: [
     ButtonGroupModule,
     ButtonModule,

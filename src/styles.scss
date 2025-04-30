@@ -43,3 +43,9 @@ body {
   gap: 1rem;
   justify-content: center;
 }
+
+// p-carousel overrides for better mobile experience
+.p-carousel .p-carousel-content .p-carousel-prev,
+.p-carousel .p-carousel-content .p-carousel-next {
+  width: min-content;
+}
